@@ -43,7 +43,7 @@ namespace GitLabApiClient
             var projectMergeRequestOptions = new ProjectMergeRequestsQueryOptions(projectId);
             options?.Invoke(projectMergeRequestOptions);
 
-            string query = _mergeRequestsQueryBuilder.
+            string query = _projectMergeRequestsQueryBuilder.
                 Build($"projects/{projectId}/merge_requests", projectMergeRequestOptions);
 
             return await _httpFacade.GetPagedList<MergeRequest>(query);
